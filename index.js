@@ -12,11 +12,11 @@ const app = express();
 
 app.use(
     cookieSession({
-        maxAge: 30 * 24 * 60 * 60 * 1000,
+        maxAge: 30 * 24 * 60 * 60 * 1000,       //extracts cookie data
         keys: [keys.cookieKey]
     })
 );
-app.use(passport.initialize()); //study later
+app.use(passport.initialize()); //study later   //pull user id out of cookie data and assigns that to req.session
 app.use(passport.session()); //study later eg. add logout function in req object
 
 require('./routes/authRoutes')(app);
